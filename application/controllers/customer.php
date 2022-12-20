@@ -37,7 +37,6 @@ class Customer extends CI_Controller {
 		$data = array('title' => 'Add Customer - ', 'page' => 'reservation');
 		$this->load->view('header', $data);
 		$this->load->view('customer/add',$viewdata);
-		$this->load->view('footer');
 	}
 
 }
