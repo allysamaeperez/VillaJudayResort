@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resort Booking</title>
+    <title>Resort booking form</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/draw.css">
+    <!-- <img src="<?php echo base_url('css/resor.jpg'); ?>" width="720" height="246" alt=""/> -->
     
 </head>
 <body>
     <div class="container">
         <form class="form-group">
             <div id="form">
-                <h1 class="text-white text-center">Booking Now</h1>
+                <h1 class="text-white text-center">Book Now</h1>
 
                 <div id="first-group">
 
@@ -75,7 +76,7 @@
             
                 </div>
 
-                <button type="submit" value="Submit" id="submit-btn">Book Now</button>
+                <button type="submit" value="Submit" id="submit-btn" action="<?= site_url('User/add_booking')?>" method="post">Book Now</button>
 
             </div>
         </form>

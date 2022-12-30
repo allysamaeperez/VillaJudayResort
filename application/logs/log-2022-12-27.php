@@ -86,11 +86,3 @@ ERROR - 2022-12-27 15:05:36 --> 404 Page Not Found: User/style.css
 ERROR - 2022-12-27 15:05:36 --> 404 Page Not Found: Css/resor.jpg
 ERROR - 2022-12-27 15:05:43 --> 404 Page Not Found: User/style.css
 ERROR - 2022-12-27 15:05:44 --> 404 Page Not Found: User/style.css
-ERROR - 2022-12-27 14:14:17 --> 404 Page Not Found: Index/index
-ERROR - 2022-12-27 14:15:20 --> 404 Page Not Found: User/style.css
-ERROR - 2022-12-27 14:19:06 --> 404 Page Not Found: User/style.css
-ERROR - 2022-12-27 14:19:07 --> 404 Page Not Found: User/style.css
-ERROR - 2022-12-27 14:19:40 --> 404 Page Not Found: User/style.css
-ERROR - 2022-12-27 14:19:59 --> 404 Page Not Found: User/style.css
-ERROR - 2022-12-27 14:20:11 --> 404 Page Not Found: User/style.css
-ERROR - 2022-12-27 14:22:04 --> 404 Page Not Found: User/style.css
