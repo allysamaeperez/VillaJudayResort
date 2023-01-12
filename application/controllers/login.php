@@ -8,6 +8,10 @@ class Login extends CI_Controller {
 		if(UID)
 			redirect("/");
 	} 
+	public function register()
+	{
+		$this->load->view('register');
+	} 
 
 	public function index()
 	{
