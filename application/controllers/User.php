@@ -45,4 +45,30 @@ class User extends CI_Controller {
 		redirect('User/index');
 
 }
+
+public function reservation() 
+    {
+        $booking = new Booking();
+        $data['booking'] = $booking->findAll();
+        return view('admin_dashboard/reservation', $data);
+    }
+public function save()
+    {
+        $booking =new Booking();
+
+
+        $data = [
+            'firstname' => $this->request->getPost('firstname'),
+            'lastname' => $this->request->getPost('lastname'),
+            'phonenumber' => $this->request->getPost('phonenumber'),
+            'email' => $this->request->getPost('email'),
+            'departuredate' => $this->request->getPost('departuredate'),
+            'arrivaldate' => $this->request->getPost('arrivaldate'),
+            'no_guest' => $this->request->getPost('no_guest'),
+            'roomtype' => $this->request->getPost('roomtype'),
+        ];
+
+        $booking->save($data);
+        return redirect()->to('booknow')->with('success', 'Your Book has been submitted. Wait for the Confirmation.');
+    }
 }
