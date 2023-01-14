@@ -50,7 +50,7 @@ public function reservation()
     {
         $booking = new Booking();
         $data['booking'] = $booking->findAll();
-        return view('admin_dashboard/reservation', $data);
+        return view('user/home', $data);
     }
 public function save()
     {
@@ -69,6 +69,33 @@ public function save()
         ];
 
         $booking->save($data);
-        return redirect()->to('booknow')->with('success', 'Your Book has been submitted. Wait for the Confirmation.');
+        return redirect()->to('booknow')->with('success', 'Your Book has been submitted.');
+    }
+	public function edit($id)
+    {
+        $booking = new Booking();
+        $data['booking'] = $booking -> find($id);
+        return view('user/home', $data);
+    }
+
+public function update($id)
+    {
+        $booking = new Booking();
+        
+
+        $data = [
+            'firstname' => $this->request->getPost('firstname'),
+            'lastname' => $this->request->getPost('lastname'),
+            'phonenumber' => $this->request->getPost('phonenumber'),
+            'email' => $this->request->getPost('email'),
+            'departuredate' => $this->request->getPost('departuredate'),
+            'arrivaldate' => $this->request->getPost('arrivaldate'),
+            'no_guest' => $this->request->getPost('no_guest'),
+            'roomtype' => $this->request->getPost('roomtype'),
+
+        ];
+
+        $booking->update($id, $data);
+        return redirect()->to('user/home')->with('success', 'Reservation has been updated.');
     }
 }
