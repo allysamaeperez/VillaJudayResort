@@ -32,8 +32,8 @@ class Payment extends CI_Controller {
 			$details = $this->input->post("details");
 			// $quantity = $this->input->post("quantity");
 
-			if(count($this->room_m->getRoomType($type))==0) {
-				$this->room_m->addRoomType($type, $price, $details);
+			if(count($this->payment_m->getPaymentType($type))==0) {
+				$this->payment_m->addPaymentType($type, $price, $details);
 				redirect("/payment-type");
 			}
 			else {
@@ -43,13 +43,13 @@ class Payment extends CI_Controller {
 
 		$data = array('title' => 'Add Payment Type - ', 'page' => 'payment_type');
 		$this->load->view('header', $data);
-		$this->load->view('room-type/add', $viewdata);
+		$this->load->view('payment-type/add', $viewdata);
 		$this->load->view('footer');
 	}
 
 	function delete($payment_type)
 	{
-		$this->room_m->deletePaymenttype($payment_type);
+		$this->payment_m->deletePaymenttype($payment_type);
 		redirect("/payment-type");
 	}
 
@@ -63,14 +63,14 @@ class Payment extends CI_Controller {
 			$details = $this->input->post("details");
 			// $quantity = $this->input->post("quantity");
 
-			$this->room_m->editRoomType($paymenttype, $price, $details);
+			$this->payment_m->editPaymentType($paymenttype, $price, $details);
 			redirect("/payment-type");
 		}
 		
 		$data = array('title' => 'Edit Payment Type - ', 'page' => 'payment_type');
 		$this->load->view('header', $data);
 
-		$room_type = $this->room_m->getPaymentType($payment_type);
+		$payment_type = $this->payment_m->getPaymentType($payment_type);
 		
 		$viewdata = array('payment_type'  => $payment_type[0]);
 		$this->load->view('payment-type/edit',$viewdata);
@@ -80,7 +80,7 @@ class Payment extends CI_Controller {
 
 	public function index()
 	{
-		$room_types = $this->room_m->get_payment_types();
+		$payment_types = $this->payment_m->get_payment_types();
 
 		$viewdata = array('payment_types' => $payment_types);
 
