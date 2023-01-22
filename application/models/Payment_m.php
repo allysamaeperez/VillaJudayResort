@@ -33,7 +33,7 @@ class Payment_m extends CI_Model {
             if($i==-1 || $data[$i]->payment_type != $row->payment_type || $data[$i]->max_id+1!=$row->payment_id) {
                 $i++;
                 $data[$i]= (object)['payment_type', 'min_id', 'max_id'];
-                $data[$i]->room_type = $row->payment_type;
+                $data[$i]->payment_type = $row->payment_type;
                 $data[$i]->min_id = intval($row->payment_id);
                 $data[$i]->max_id = intval($row->payment_id);
             } else {
