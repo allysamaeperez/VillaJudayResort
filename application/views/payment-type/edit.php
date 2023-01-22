@@ -9,19 +9,19 @@
 			<div class="add-fields">
 
 				<div class="field">
-					<label for="room_type">Payment Type:</label>
-					<input type="text" id="type" name="type" required value="<?=$room_type->room_type?>" placeholder="Payment Type" readonly/>
+					<label for="payment_type">Payment Type:</label>
+					<input type="text" id="type" name="type" required value="<?=$payment_type->payment_type?>" placeholder="Payment Type" readonly/>
 				</div> <!-- /field -->
 				
 				<div class="field">
-					<label for="room_price">Price:</label>
+					<label for="price">Price:</label>
 					<input type="number" min="1" id="price" name="price" required value="<?=$payment_type->price?>" placeholder="Price"/>
 					<i icon="icon-dollar"></i>
 				</div> <!-- /field -->
 
 				<div class="field">
-					<label for="room_details">Details:</label>
-					<input type="text" id="details" name="details" value="<?=$apyment_type->details?>" placeholder="Details"/>
+					<label for="details">Details:</label>
+					<input type="text" id="details" name="details" value="<?=$payment_type->details?>" placeholder="Details"/>
 				</div> <!-- /field -->
 
 			</div> <!-- /login-fields -->
