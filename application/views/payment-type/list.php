@@ -18,7 +18,7 @@
 				<tbody>
 				<?php
 				if(isset($payment_types) && is_array($payment_types)):
-					foreach ($room_types as $rt) {
+					foreach ($payment_types as $rt) {
 				?>
 				  <tr>
 				    <td> <?=$rt->payment_type ?> </td>
