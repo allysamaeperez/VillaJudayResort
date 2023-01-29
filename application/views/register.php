@@ -2,16 +2,16 @@
 	
 	<div class="content clearfix">
 		
-		<form action="<?= base_url('login') ?>" method="post">
+		<form action="<?= base_url() ?>/register" method="post">
 		
-			<h1 class="text-center" style="margin-bottom:0px"><center>Login</center></h1>	
+			<h1 class="text-center" style="margin-bottom:0px"><center>Register</center></h1>	
 			<center>
 				<p>Please provide your details</p>
 			</center>	
 			
-			<div class="login-fields">
+			<div class="Register-fields">
 				<?php
-				if(@$error) {
+				if($error) {
 				?>
 				<div class="alert"><button type="button" class="close" data-dismiss="alert">×</button>Your username or password are invalid</div>
 				<?php } ?>
@@ -39,7 +39,7 @@
 				
 			</div> 
 			
-			<div class="login-actions">
+			<div class="Register-actions">
 				
 				<span class="login-checkbox">
 					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />

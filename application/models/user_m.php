@@ -23,5 +23,8 @@ class User_m extends CI_Model {
             return $data;
         return false;
     }
+    public function register($data)
+    {
+    }
 }
 
