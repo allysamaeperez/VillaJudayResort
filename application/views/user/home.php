@@ -8,12 +8,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/draw.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!-- <img src="<?php echo base_url('css/resor.jpg'); ?>" width="720" height="246" alt=""/> -->
     
 </head>
 <body>
     <div class="container">
-        <form class="form-group">
+    <?php if ($this->session->flashdata('success')) : ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <?php echo $this->session->flashdata('message'); ?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+<?php endif; ?>
+        <form class="form-group"  action="<?= site_url('User/add_booking')?>" method="post">
             <div id="form">
                 <h1 class="text-white text-center">Book Now</h1>
 
@@ -21,26 +28,26 @@
 
                     <div id="content">
                         <i class="fa fa-user" aria-hidden="true"></i>
-                        <input type="text" id="input-group" placeholder="First name">
+                        <input type="text" id="input-group" name="firstname" placeholder="First name">
                     </div>
 
                     <div id="content">
                         <i class="fa fa-phone" aria-hidden="true"></i>
-                        <input type="number" id="input-group" placeholder="Phone number">
+                        <input type="number" id="input-group" name="phone_number" placeholder="Phone number">
                     </div>
 
                     <div id="content">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
-                        <input type="text" id="input-group" placeholder="Departure Date">
+                        <input type="text" id="input-group" name="departure_date" placeholder="Departure Date">
                     </div>
 
                     <div id="content">
                         <i class="fa fa-users" aria-hidden="true"></i>
-                        <select id="input-group" style="background-color: black;">
-                            <option value="">No.of guests</option>
-                            <option value="">1-5</option>
-                            <option value="">6-10</option>
-                            <option value="">11-20</option>
+                        <select id="input-group" type="text" name="guest" style="background-color: black;">
+                            <option>No.of guests</option>
+                            <option>1-5</option>
+                            <option>6-10</option>
+                            <option>11-20</option>
                         </select>
                     </div>
 
@@ -50,36 +57,51 @@
 
                     <div id="content">
                         <i class="fa fa-user" aria-hidden="true"></i>
-                        <input type="text" id="input-group" placeholder="Last name">
+                        <input type="text" id="input-group" name="lastname" placeholder="Last name">
                     </div>
 
                     <div id="content">
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <input type="email" id="input-group" placeholder="Email">
+                        <input type="email" id="input-group" name="email" placeholder="Email">
                     </div>
 
                     <div id="content">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
-                        <input type="text" id="input-group" placeholder="Arrival Date">
+                        <input type="text" id="input-group" name="arrival_date" placeholder="Arrival Date">
                     </div>
 
                     <div id="content">
                         <i class="fa fa-users" aria-hidden="true"></i>
-                        <select id="input-group" style="background-color: black;">
-                            <option value="">Room Type</option>
-                            <option value="">AC</option>
-                            <option value="">Non-AC</option>
-                            <option value="">Single Bed</option>
-                            <option value="">Double Bed</option>
+                        <select id="input-group" type="text" name="room_type" style="background-color: black;">
+                            <option>Room Type</option>
+                            <option>AC</option>
+                            <option>Non-AC</option>
+                            <option>Single Bed</option>
+                            <option>Double Bed</option>
                         </select>
                     </div>
             
                 </div>
 
-                <button type="submit" value="Submit" id="submit-btn" action="<?= site_url('User/add_booking')?>" method="post">Book Now</button>
+                <button type="submit" value="Submit" id="submit-btn" method="post">Book Now</button>
 
             </div>
         </form>
     </div>
 </body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+        
+		$(document).ready(function(){
+            <?php if($this->session->flashdata() == 'success'):?>
+			swal({
+				title: 'Thank You!',
+				text: 'Hllo',
+				icon: 'success',
+                timer:2000,
+				button:false,
+				});
+            <?php endif;?>
+		});
+    </script>
 </html>

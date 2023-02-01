@@ -76,3 +76,11 @@ ERROR - 2023-01-29 15:31:06 --> 404 Page Not Found: User/style.css
 ERROR - 2023-01-29 15:31:06 --> 404 Page Not Found: User/style.css
 ERROR - 2023-01-29 15:31:06 --> 404 Page Not Found: User/style.css
 ERROR - 2023-01-29 15:31:06 --> 404 Page Not Found: User/style.css
+ERROR - 2023-01-29 15:59:59 --> 404 Page Not Found: User/style.css
+ERROR - 2023-01-29 16:00:00 --> 404 Page Not Found: User/style.css
+ERROR - 2023-01-29 16:00:01 --> 404 Page Not Found: User/style.css
+ERROR - 2023-01-29 16:00:01 --> 404 Page Not Found: User/style.css
+ERROR - 2023-01-29 16:00:08 --> 404 Page Not Found: User/js
+ERROR - 2023-01-29 16:00:13 --> 404 Page Not Found: User/style.css
+ERROR - 2023-01-29 16:01:20 --> 404 Page Not Found: User/style.css
+ERROR - 2023-01-29 16:08:23 --> Severity: Notice --> Undefined variable: error C:\wamp64\www\VillaJudayResort\application\views\register.php 14

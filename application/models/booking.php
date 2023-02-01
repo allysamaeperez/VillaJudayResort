@@ -18,6 +18,5 @@ class Booking extends Model
         'arrivaldate',
         'no_guest',
         'roomtype'
-      
     ];
 }

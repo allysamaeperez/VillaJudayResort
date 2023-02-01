@@ -14,36 +14,22 @@ class User extends CI_Controller {
     public function add_booking(){
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $this->load->view('User/home');
-		$firstname = ('firstname');
-		$lastname = ('lastname');
-		$phone_number =('phone_number');
-		$departure_date =('departure_date');
-        $email = ('email');
-        $arrival_date = ('arrival_date');
-        $room_type = ('room_type');
+        //$this->load->view('User/home');
 
-        $data['firstname'] = 'firstname';
-       
+        $data = [
+            'firstname'=> $this->input->post('firstname'),
+            'lastname'=> $this->input->post('lastname'),
+            'phone_number'=> $this->input->post('phone_number'),
+            'departure_date'=> $this->input->post('departure_date'),
+            'email'=> $this->input->post('email'),
+            'arrival_date'=> $this->input->post('arrival_date'),
+            'room_type'=> $this->input->post('room_type'),
+            'guest'=> $this->input->post('guest')
+        ];
 
-        $this->form_validation->set_rules('firstname', 'Firstname', 'required');
-         if($this->form_validation->run()){
-            $data = $this->input->post();
-         	$this->load->model('Admin');
-            $result = $this->admin->add_booking();
-         	if ($this->Admin->add_booking($firstname,$lastname,$phone_number,$departure_date,$email,$arrival_date,$room_type)==true){
-         		$_SESSION['status']="Added Successfully";
-				$_SESSION['status_code']="success";
-         	}
-         }
-         else{
-         		$_SESSION['status']="Record not saved";
-				$_SESSION['status_code']="error";
-         }
-
-
+        $this->db->insert('appointment', $data);
+        $this->session->flashdata('success');
 		redirect('User/index');
-
 }
 
 public function reservation() 

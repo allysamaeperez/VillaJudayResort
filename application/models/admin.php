@@ -5,7 +5,7 @@ class Admin extends Model {
     $this->load->database();
     }
 
-public function add_booking($firstname,$lastname,$phone_number,$departure_date,$email,$arrival_date,$room_type){
+public function add_booking($firstname,$lastname,$phone_number,$departure_date,$email,$arrival_date,$room_type,$guest){
         $data=array(
             'firstname'=>$firstname,
             'lastname'=>$lastname,
@@ -13,9 +13,10 @@ public function add_booking($firstname,$lastname,$phone_number,$departure_date,$
             'departure_date'=>$departure_date,
             'email'=>$email,
             'arrival_date'=>$arrival_date,
-            'room_type'=>$room_type
+            'room_type'=>$room_type,
+            'guest'=>$guest
         );
-       $query= $this->db->get('booking');
+       $this->db->insert('appointment', $data);
         return $query->result();
 
 }

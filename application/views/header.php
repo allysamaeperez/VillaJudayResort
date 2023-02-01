@@ -61,7 +61,7 @@
               </li>
               <li <?php if($page == "departments"){ echo 'class="active"'; } ?>><a href="<?= base_url() ?>departments"><i class="icon-file"></i><span>Departments</span> </a> </li>
               <li <?php if($page == "restaurant"){ echo 'class="active"'; } ?>><a href="<?= base_url() ?>restaurant"><i class="icon-fire"></i><span>Restaurants</span> </a> </li>
-              
+              <li <?php if($page == "restaurant"){ echo 'class="active"'; } ?>><a href="<?= base_url() ?>restaurant"><i class="icon-fire"></i><span>Appointment</span> </a> </li>
           </div>
 
         </div>
