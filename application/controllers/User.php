@@ -11,6 +11,16 @@ class User extends CI_Controller {
 		$this->load->view('User/site');
 		
 	}
+    public function register() {
+        $this->load->helper('url');
+		$this->load->view('User/register');
+		
+	}
+    public function login() {
+        $this->load->helper('url');
+		$this->load->view('User/login');
+		
+	}
     public function add_booking(){
         $this->load->helper('form');
         $this->load->library('form_validation');

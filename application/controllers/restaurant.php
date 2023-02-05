@@ -45,10 +45,10 @@ class Restaurant extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	function delete($restaurant_name)
+	function delete($firstname)
 	{
-		$restaurant_name = urldecode($restaurant_name);
-		$this->restaurant_m->deleteRestaurant($restaurant_name);
+		$restaurant_name = urldecode($firstname);
+		$this->restaurant_m->deleteRestaurant($firstname);
 		redirect("/restaurant");
 	}
 

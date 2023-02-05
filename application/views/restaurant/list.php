@@ -3,7 +3,6 @@
     <div class="container">
       <div class="row">
         <div class="span12">
-			<a href="javascript:open_form();" class="btn btn-small btn-success"><i class="btn-icon-only icon-plus"></i>Add Restaurant Service</a>
 			<div class="account-container" style="display: none;" id="form">
 				<div class="content clearfix">
 					<form action="<?= base_url() ?>service/restaurant" method="post">
@@ -57,16 +56,18 @@
 				</div>
 			</div>
 			<hr>
-			<a href="<?= base_url() ?>restaurant/add" class="btn btn-small btn-primary"><i class="btn-icon-only icon-ok"></i>Add Restaurants</a>
+			
 			<br><br>
 			<table class="table table-striped table-bordered">
 				<thead>
 				  <tr>
-				    <th> Restuarant name </th>
-				    <th> Restaurant Opentime </th>
-				    <th> Restaurant Closetime </th>
-				    <th> Restaurant Details </th>
-				    <th> Table Count </th>
+				    <th> Firstname </th>
+				    <th> Lastname</th>
+				    <th> Phone Number </th>
+				    <th> Departure Date </th>
+				    <th> Arrival Date</th>
+					<th> Room Type</th>
+					<th> Guest</th>
 				    <th class="td-actions", width="100"> Actions </th>
 				  </tr>
 				</thead>
@@ -77,12 +78,14 @@
 						// $emp->username
 				?>
 				  <tr>
-				    <td> <?=$rest->restaurant_name?> </td>
-				    <td> <?=$rest->restaurant_open_time?> </td>
-				    <td> <?=$rest->restaurant_close_time?> </td>
-				    <td> <?=$rest->restaurant_details?> </td>
-				    <td> <?=$rest->table_count?> </td>
-				    <td class="td-actions"><a href="<?= base_url() ?>restaurant/edit/<?=$rest->restaurant_name?>" class="btn btn-small btn-primary"><i class="btn-icon-only icon-edit"> </i></a><a href="<?= base_url() ?>restaurant/delete/<?=$rest->restaurant_name?>" onclick="return confirm('Are you sure ?')" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
+				    <td> <?=$rest->firstname?> </td>
+				    <td> <?=$rest->lastname?> </td>
+				    <td> <?=$rest->phone_number?> </td>
+				    <td> <?=$rest->departure_date?> </td>
+				    <td> <?=$rest->arrival_date?> </td>
+					<td> <?=$rest->room_type?> </td>
+					<td> <?=$rest->guest?> </td>
+				    <td class="td-actions"></i></a><a href="<?= base_url() ?>restaurant/delete/<?=$rest->firstname?>" onclick="return confirm('Are you sure ?')" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
 				  </tr>
 				<?php }} ?>
 				</tbody>

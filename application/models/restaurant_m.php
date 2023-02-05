@@ -10,7 +10,7 @@ class Restaurant_m extends CI_Model {
     
     function get_restaurants()
     {
-        $query = $this->db->from('restaurant')->get();
+        $query = $this->db->from('appointment')->get();
         $data = array();
 
         foreach (@$query->result() as $row)
@@ -22,16 +22,16 @@ class Restaurant_m extends CI_Model {
         return false;
     } 
 
-    function addRestaurant($restaurantName, $restaurantOpenTime, $restaurantCloseTime, $restaurantDetails, $tableCount)
+    function addRestaurant($firstname, $lastname, $phone_number, $departure_date, $email,$arrival_date, $room_type, $guest)
     {
         $data = array('restaurant_name' => $restaurantName, 'restaurant_open_time' => $restaurantOpenTime, 'restaurant_close_time' => $restaurantCloseTime, 'restaurant_details' => $restaurantDetails, 'table_count' => $tableCount);
         $this->db->insert('restaurant', $data);
         return $this->db->affected_rows();
     } 
 
-    function deleteRestaurant($restaurant_name)
+    function deleteRestaurant($firstname)
     {
-        $this->db->delete('restaurant', array('restaurant_name' => $restaurant_name));
+        $this->db->delete('appointment', array('firstname' => $firstname));
         return $this->db->affected_rows();
     }
 

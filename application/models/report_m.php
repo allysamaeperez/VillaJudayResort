@@ -10,17 +10,10 @@ class Report_m extends CI_Model {
     
     function today_stats()
     {
-        $date = date('Y-m-d');
-        $query = $this->db->query("CALL todays_service_count('$date')");
-        $data = array();
-
-        foreach (@$query->result() as $row)
-        {
-            $data[$row->type] = $row->amount;
-        }
-        if(count($data))
-            return $data;
-        return false;
+        $this->db->from('appointment');
+        $count = $this->db->count_all_results();
+        $data['count'] = $count;
+        
     }
 
     function search_customers($query)

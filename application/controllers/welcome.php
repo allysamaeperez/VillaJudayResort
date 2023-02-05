@@ -32,7 +32,14 @@ class Welcome extends CI_Controller {
 		$customer_pay_list = $this->report_m->get_customer_freq_list();
 		$customer_most_paid = $this->report_m->get_customer_most_paid();
 		$next_week_freq = $this->report_m->get_next_week_freq();
-		
+		$this->db->from('appointment');
+        $count = $this->db->count_all_results();
+        $this->db->from('employee');
+        $employee = $this->db->count_all_results();
+		$this->db->from('reservation');
+        $reservation = $this->db->count_all_results();
+		$this->db->from('department');
+        $department = $this->db->count_all_results();
 		$data = array('title' => '', 'page' => 'dashboard');
 		$this->load->view('header', $data);
 
@@ -40,7 +47,11 @@ class Welcome extends CI_Controller {
 			'today_stats' => $today_stats,
 			'customer_pay_list' => $customer_pay_list,
 			'customer_most_paid' => $customer_most_paid,
-			'next_week_freq' => $next_week_freq
+			'next_week_freq' => $next_week_freq,
+			'count' => $count,
+			'employee' => $employee,
+			'department' => $department,
+			'reservation' => $reservation
 		);
 		$this->load->view('welcome_message', $viewdata);
 		$this->load->view('footer', array("next_week_freq"=>$next_week_freq));

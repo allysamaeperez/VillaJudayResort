@@ -14,16 +14,16 @@
                   <h6 class="bigstats"> What happened today on VillaJuday Resort? </h6>
                   <div id="big_stats" class="cf">
 
-                    <div class="stat"> <i class="icon-user-md"></i> <span class="value"><?= @$today_stats["employee"]?></span> <br>Employees</div>
+                    <div class="stat"> <i class="icon-user-md"></i> <span class="value"><?php echo $employee; ?></span> <br>Employees</div>
                     <!-- .stat -->
                     
-                    <div class="stat"> <i class="icon-list-alt"></i> <span class="value"><?= @$today_stats["reservation"]?></span> <br>Reservation</div>
+                    <div class="stat"> <i class="icon-list-alt"></i> <span class="value"><?php echo $reservation; ?></span> <br>Reservation</div>
                     <!-- .stat -->
                     
-                    <div class="stat"> <i class="icon-file"></i> <span class="value"><?= @$today_stats["department"]?></span> <br>Departments</div>
+                    <div class="stat"> <i class="icon-file"></i> <span class="value"><?php echo $department; ?></span> <br>Departments</div>
                     <!-- .stat --> 
 
-                    <div class="stat"> <i class="icon-fire"></i> <span class="value"><?= @$today_stats["restaurant"]?></span> <br>Restaurants</div>
+                    <div class="stat"> <i class="icon-fire"></i> <span class="value"><?php echo $count; ?></span> <br>Appointment</div>
                     <!-- .stat --> 
                   </div>
                 </div>

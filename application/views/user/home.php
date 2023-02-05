@@ -74,10 +74,9 @@
                         <i class="fa fa-users" aria-hidden="true"></i>
                         <select id="input-group" type="text" name="room_type" style="background-color: black;">
                             <option>Room Type</option>
-                            <option>AC</option>
-                            <option>Non-AC</option>
                             <option>Single Bed</option>
                             <option>Double Bed</option>
+                            <option>Deluxe</option>
                         </select>
                     </div>
             
@@ -96,7 +95,7 @@
             <?php if($this->session->flashdata() == 'success'):?>
 			swal({
 				title: 'Thank You!',
-				text: 'Hllo',
+				text: 'Hello',
 				icon: 'success',
                 timer:2000,
 				button:false,

@@ -1,19 +1,100 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Register extends CI_Controller {
+
+ public function __construct()
+ {
+  parent::__construct();
+  if($this->session->userdata('id'))
+  {
+   redirect('private_area');
+  }
+  $this->load->library('form_validation');
+
+  $this->load->model('register_model');
+ }
+
+ function index()
+ {
+  $this->load->view('user/register');
+ }
+
+ function validation()
+ {
+  $this->form_validation->set_rules('user_name', 'Name', 'required|trim');
+  $this->form_validation->set_rules('user_email', 'Email Address', 'required|trim|valid_email|is_unique[codeigniter_register.email]');
+  $this->form_validation->set_rules('user_password', 'Password', 'required');
+  if($this->form_validation->run())
+  {
+   $verification_key = md5(rand());
+   $encrypted_password = $this->input->post('user_password');
+   $data = array(
+    'name'  => $this->input->post('user_name'),
+    'email'  => $this->input->post('user_email'),
+    'password' => $encrypted_password,
+    'verification_key' => $verification_key
+   );
+   $id = $this->register_model->insert($data);
+   if($id > 0)
+   {
+    $subject = "Please verify email for login";
+    $message = "
+    <p>Hi ".$this->input->post('user_name')."</p>
+    <p>This is email verification mail from Codeigniter Login Register system. For complete registration process and login into system. First you want to verify you email by click this <a href='".base_url()."register/verify_email/".$verification_key."'>link</a>.</p>
+    <p>Once you click this link your email will be verified and you can login into system.</p>
+    <p>Thanks,</p>
+    ";
+    $config = array(
+     'protocol'  => 'smtp',
+     'smtp_host' => 'smtp.googlemail.com',
+     'smtp_port' => 465,
+     'smtp_user'  => 'sasuke277379597@gmail.com', 
+                  'smtp_pass'  => 'aeekhzyioxfjwojd', 
+     'mailtype'  => 'html',
+	 'smtp_timeout'  => 30,
+	 'smtp_crypto'  => 'ssl',
+     'charset'    => 'UTF-8',
+                   'wordwrap'   => TRUE
+    );
+    $this->load->library('email', $config);
+    $this->email->set_newline("\r\n");
+    $this->email->from('sasuke277379597@gmail.com');
+    $this->email->to($this->input->post('user_email'));
+    $this->email->subject($subject);
+    $this->email->message($message);
+    if($this->email->send())
+    {
     
-	public function index()
-	{	
-		$this->load->view('register');
-	}
+	 $data['message'] = 'Check in your email for email verification mail';
+     redirect('user/register', $data);
+    }
+   }
+  }
+  else
+  {
+   $this->index();
+  }
+ }
 
-	public function save()
-	{
-		
-	}
+ function verify_email()
+ {
+  if($this->uri->segment(3))
+  {
+   $verification_key = $this->uri->segment(3);
+   if($this->register_model->verify_email($verification_key))
+   {
+    $data['message'] = '<h1 align="center">Your Email has been successfully verified, now you can login from <a href="'.base_url().'user/login">here</a></h1>';
+   }
+   else
+   {
+    $data['message'] = '<h1 align="center">Invalid Link</h1>';
+   }
+   $this->load->view('user/email_verification', $data);
+  }
+ }
 
-	
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+?>
