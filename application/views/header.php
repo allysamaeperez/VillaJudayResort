@@ -57,10 +57,9 @@
               <li <?php if($page == "dashboard"){ echo 'class="active"'; } ?>><a href="<?= base_url() ?>"><i class="icon-dashboard"></i><span>Dashboard</span> </a> </li>
               <li <?php if($page == "employee"){ echo 'class="active"'; } ?>><a href="<?= base_url() ?>employee"><i class="icon-user"></i><span>Employees</span> </a> </li>
               <li <?php if($page == "reservation"){ echo 'class="active"'; } ?>><a href="<?= base_url() ?>reservation"><i class="icon-list-alt"></i><span>Reservation</span> </a> </li>
-             
+              <li <?php if($page == "room"){ echo 'class="active"'; } ?>><a href="<?= base_url() ?>room"><i class="icon-list-alt"></i><span>Room</span> </a> </li>
               </li>
               <li <?php if($page == "departments"){ echo 'class="active"'; } ?>><a href="<?= base_url() ?>departments"><i class="icon-file"></i><span>Departments</span> </a> </li>
-              <li <?php if($page == "restaurant"){ echo 'class="active"'; } ?>><a href="<?= base_url() ?>restaurant"><i class="icon-fire"></i><span>Restaurants</span> </a> </li>
               <li <?php if($page == "restaurant"){ echo 'class="active"'; } ?>><a href="<?= base_url() ?>restaurant"><i class="icon-fire"></i><span>Appointment</span> </a> </li>
           </div>
 

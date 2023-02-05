@@ -9,6 +9,7 @@
 				<thead>
 				  <tr>
 				    <th> Room Type </th>
+					
 				    <th> Min ID </th>
 				    <th> Max ID </th>
 				    <th> Quantity </th>
@@ -23,6 +24,7 @@
 				?>
 				  <tr>
 				    <td> <?=$rm->room_type ?> </td>
+					
 				    <td> <?=$rm->min_id ?> </td>
 				    <td> <?=$rm->max_id?> </td>
 				    <td> <?=($rm->max_id-$rm->min_id+1) ?> </td>
